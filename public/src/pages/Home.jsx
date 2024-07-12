@@ -8,17 +8,15 @@ const Home = () => {
       const firstContainer = document.querySelector('.container-first');
       const scrollPosition = window.scrollY;
       
-      // Adjust the factor to control the speed and range of movement
       const factor = 15;
       
       const viewportWidth = window.innerWidth;
-      const newPosition = Math.min(scrollPosition * factor, viewportWidth);  // Move until it's out of the viewport
+      const newPosition = Math.min(scrollPosition * factor, viewportWidth);
       firstContainer.style.transform = `translateX(${newPosition}px)`;
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
