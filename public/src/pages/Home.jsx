@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import styled from "styled-components"
+import gif from "./people.gif"
 
 const Home = () => {
 
@@ -32,7 +33,7 @@ const Home = () => {
         </div>
       </div>
       <div className="right">
-        <img src="/path/to/pigeon.png" alt="Pigeon" />
+        <img src={gif} alt = "people"/>
       </div>
     </div>
 
