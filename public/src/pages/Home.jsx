@@ -8,7 +8,7 @@ const Home = () => {
       const firstContainer = document.querySelector('.container-first');
       const scrollPosition = window.scrollY;
       
-      const factor = 15;
+      const factor = 20;
       
       const viewportWidth = window.innerWidth;
       const newPosition = Math.min(scrollPosition * factor, viewportWidth);
@@ -26,8 +26,10 @@ const Home = () => {
     <Container>
     <div className="container-first">
       <div className="left">
+        <div className="text">
         <h1><span>un</span>conventional</h1>
         <p>A better way to build your next great app.</p>
+        </div>
       </div>
       <div className="right">
         <img src="/path/to/pigeon.png" alt="Pigeon" />
@@ -83,9 +85,18 @@ body, html {
   position: relative;
 }
 
+.text{
+  position: absolute; /* Absolute positioning within .left */
+  top: 25%; /* Adjust to vertically center */
+  left: 0%; /* Adjust left position */
+  transform: translate(50%,50%); /* Center the text */
+  z-index: 15; /* Ensure it appears above the container */
+}
+
 .left h1 {
   font-size: 4rem;
   margin: 0;
+ 
 }
 
 .left h1 span {
