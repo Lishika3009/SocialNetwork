@@ -1,7 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from "styled-components"
 
 const Home = () => {
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const firstContainer = document.querySelector('.container-first');
+      const scrollPosition = window.scrollY;
+      
+      // Adjust the factor to control the speed and range of movement
+      const factor = 15;
+      
+      const viewportWidth = window.innerWidth;
+      const newPosition = Math.min(scrollPosition * factor, viewportWidth);  // Move until it's out of the viewport
+      firstContainer.style.transform = `translateX(${newPosition}px)`;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   return (
     <Container>
     <div className="container-first">
@@ -25,11 +47,11 @@ const Home = () => {
           together to make life easier for you, your users, and maybe the universe.
         </p>
       </div>
-      <div className="scroll">SCROLL</div>
     </div>
     </Container>
   );
 };
+
 
 const Container = styled.div `
 body, html {
@@ -40,8 +62,17 @@ body, html {
 
 .container-first {
   display: flex;
-  height: 88vh;
-  padding: 40px;
+  height: 100vh;
+  transition: left 0.5s;
+  width: 100%;
+  justify-content: space-between;
+  position: fixed; /* Fixed positioning */
+  top: 0;
+  left: 0;
+  background-color: white;
+  transition: transform 0.5s; /* Smooth transition */
+  z-index: 10; /* Ensure it's on top */
+  transform: translateX(0);
 }
 
 .left {
@@ -85,11 +116,11 @@ body, html {
 .container-second {
   display: flex;
   flex-direction: column;
-  height: 88vh;
+  height: 100vh;
   padding: 40px;
   background-color: #a0f1e0;
   position: relative;
-  margin: 40px;
+  z-index: 1;
 }
 
 .content {
