@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from "styled-components"
 import gif from "./people.gif"
+import scroll from './Animation.gif'
 
 const Home = () => {
 
@@ -35,6 +36,10 @@ const Home = () => {
       <div className="right">
         <img src={gif} alt = "people"/>
       </div>
+      <div className="scroll-indicator">
+        <img src={scroll} alt = "scroll"/>
+      </div>
+      <div className="scroll-indicator">Scroll Me</div>
     </div>
 
     <div className="container-second">
@@ -169,6 +174,16 @@ body, html {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
+  .scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  text-align: center;
 `
 
 export default Home
