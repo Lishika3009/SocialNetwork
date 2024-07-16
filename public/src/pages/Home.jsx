@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from "styled-components"
-import gif from "./people.gif"
-import scroll from './Animation.gif'
+import gif from "../images/people.gif"
+import scroll from "../images/Animation.gif"
 
 const Home = () => {
 
