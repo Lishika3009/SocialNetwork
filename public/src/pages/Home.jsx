@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import gif from '../images/people.gif';
 import scroll from '../images/Animation.gif';
 
 const Home = () => {
+  const navigate = useNavigate(); 
   useEffect(() => {
+    
     const handleScroll = () => {
       const firstContainer = document.querySelector('.container-first');
       const scrollPosition = window.scrollY;
@@ -22,13 +25,18 @@ const Home = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+  const handleLoginClick = () => {
+    navigate('/login'); // Navigate to the login page
+  };
+  const handleSignupClick = () => {
+    navigate('/register'); // Navigate to the login page
+  };
   return (
     <Container>
       <div className="container-first">
         <div className="top-right-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">Sign Up</button>
+          <button className="login-btn" onClick={handleLoginClick}>Login</button>
+          <button className="signup-btn" onClick={handleSignupClick}>Sign Up</button>
         </div>
         <div className="left">
           <div className="text">
