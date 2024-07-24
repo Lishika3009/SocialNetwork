@@ -19,7 +19,7 @@ export default function Login() {
   };
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      navigate("/");
+      navigate("/main");
     }
   }, []);
 
@@ -56,7 +56,7 @@ export default function Login() {
           JSON.stringify(data.user)
         );
 
-        navigate("/");
+        navigate("/main");
       }
     }
   };
